@@ -1,15 +1,9 @@
-//chrome.runtime.onMessage.addListener(replace);
-// document.addEventListener('DOMContentLoaded', function () {
-//     console.log( 'document was not ready, place code here' );
-//     replace();
-// });
-
-// if (document.readyState === 'loading') {
-//     document.addEventListener('DOMContentLoaded', replace);
-// } else {
-//     replace();
-// }
-document.addEventListener("scroll", replace);
+//Prevents code from running before page
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', replace);
+} else {
+    replace();
+}
 
 function replace() {
     console.log("wopp");
@@ -41,6 +35,7 @@ function replace() {
         //image.src = file;
         console.log(url);
     }
+    setTimeout(replace, 5000);
 }
 
 
