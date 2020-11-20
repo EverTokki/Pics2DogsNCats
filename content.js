@@ -28,12 +28,18 @@ function onWindowLoaded() {
 
     function changeImg(img) {
         img.dataset.replaced = true;
-        let ran = Math.floor(Math.random() * 10);
-        let file = 'cat/' + ran + '.jpg';
-        let url = chrome.extension.getURL(file);
-        img.src = url;
+        width = img.width;
+        height = img.height;
+        img.src = makeURL(width, height);
+        // let ran = Math.floor(Math.random() * 10);
+        // let file = 'cat/' + ran + '.jpg';
+        // let url = chrome.extension.getURL(file);
+        // img.src = url;
     }
 
+    function makeURL(x, y) {
+        return 'http://placekitten.com/'+x+'/'+y;
+    }
 
 
 
