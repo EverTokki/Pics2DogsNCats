@@ -16,12 +16,8 @@ function replace() {
 
         let file = 'cat/' + ran + '.jpg';
         let url = chrome.extension.getURL(file);
-        //image.setAttribute("src", url);
         image.src = url;
-        //image.src = file;
-        console.log(url);
     }
-    setTimeout(replace, 5000);
 }
 
 
