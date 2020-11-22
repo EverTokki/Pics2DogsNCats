@@ -9,7 +9,7 @@
       "matches": [
         "<all_urls>"
       ],
-      "js": ["jquery-3.5.1.js","content.js"]
+      "js": ["src/jquery-3.5.1.js","src/content.js"]
     }
   ]
 }
