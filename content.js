@@ -1,5 +1,6 @@
 window.addEventListener('load', onWindowLoaded, false);
 
+// Checks for new image loads into page
 function onWindowLoaded() {
     const target = document.body;
     const config = { attributes: false, childList: true, subtree: true };
@@ -15,28 +16,26 @@ function onWindowLoaded() {
     }
 }
 
-
+    // Checks if image should be replaced
     function replace() {
-        let images = document.getElementsByTagName('img');
-        for (image of images) {
-            if (image.dataset.replaced == undefined) {
-                changeImg(image);
+        let imgList = document.getElementsByTagName('img');
+        for (img of imgList) {
+            if (img.dataset.replaced == undefined) {
+                changeImg(img);
             }
         }
     }
 
+    // Sets image replaced flag to true
     function changeImg(img) {
         img.dataset.replaced = true;
         width = img.width - (img.width%10);
         height = img.height - (img.height%10);
         img.src = makeURL(width, height);
-        // let ran = Math.floor(Math.random() * 10);
-        // let file = 'cat/' + ran + '.jpg';
-        // let url = chrome.extension.getURL(file);
-        // img.src = url;
         return;
     }
 
+    // Makes URL to retrieve image of same size
     function makeURL(x, y) {
         let ran = Math.floor(Math.random() * 2);
         if(ran===0)
